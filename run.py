@@ -1,37 +1,46 @@
-from flask import Flask, request, jsonify
-import random, logging
+from flask import Flask, request, render_template
+import random
 
 
-response = ['I to jest fakt']
+question = ['ktory jest glupi ', 'ktory jest z policji ', 'ktory pije kawe ', 'ktory je zupe', 'który śpi ', 'którego, gówno to obchodzi']
+answer = ['dupa', 'gówno', 'nie interesuj sie', 'A zasadził ktoś, kiedyś panu kopa w dupę?', 'Jełopie, jeden zasrany', 'W tym kraju nie ma pracy dla ludzi z moim wykształceniem']
 
 app = Flask(__name__)
 
+
+
+
+@app.route('/a', methods=['POST', 'GET'])
+def bot1():
+    if request.method =="GET":
+        return render_template("index.html")
+    elif request.method =="POST":
+        text = request.form["text"]
+        y = (random.choice(question))
+        xd = (random.choice(answer))
+        success = text
+        quest = "Jak nazywa sie " + text + " " + y + "?"
+        ans = xd
+        return render_template("index.html",
+        questResponse = quest, ansResponse = ans if success else "Failed")
+
+
 @app.route('/bot', methods=['POST', 'GET'])
-def bot():
+def bot2():
     if request.method == 'POST':
         text = request.form.get('text')
-        return jsonify(random.choice(response))
+        y = (random.choice(question))
+        xd = (random.choice(answer))
+        #return jsonify(random.choice(response))"
+        return '''Jak nazywa się: {}, {} ? <br> <br>
+                    {}'''.format(text, y, xd)
 
-    return ''' <form method="POST">
-                Witaj, co u Ciebie? <input type="text" name="witaj">
-                <input type="submit" value="Wyslij"><br>
-            </form>'''
-@app.route('/form-example', methods=['GET', 'POST']) #allow both GET and POST requests
-def form_example():
-    if request.method == 'POST':  #this block is only entered when the form is submitted
-        language = request.form.get('language')
-        framework = request.form['framework']
 
-        return '''<h1>The language value is: {}</h1>
-                  <h1>The framework value is: {}</h1>'''.format(language, framework)
+    return ''' <form method="POST"><br>
+                Wpisz imie osoby o ktorej chcesz uslyszec zart <br>
+                <input type="text" name="text"><br> <br>
+                <input type="submit" value="Wyslij"><br></form>''' 
 
-    return '''<form method="POST">
-                  Language: <input type="text" name="language"><br> 
-                  Framework: <input type="text" name="framework"><br>
-                  <input type="submit" value="Submit"><br>
-              </form>''' # to daje pola do wpisania wartości
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-
+    app.run(debug=True, )

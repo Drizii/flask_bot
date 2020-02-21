@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Malyszobot</title>
+
+
+
+</head>
+
+<body>
+    <h1>Witaj w Małyszobocie! <br />
+    Wpisz imię osoby, o której chcesz usłyszec żart.</h1>
+    <form action="/a" method="post">
+        Imie: <br> <br>
+        <input type="text" name="text"> <br> <br>
+        <input type="submit" value="Wyslij"><br>
+        <br>
+        {% if questResponse %}
+        {{ questResponse }}
+        {% endif %}
+        <br>
+        <br>
+        {% if ansResponse %}
+        {{ ansResponse }}
+
+        <br>
+        <br>
+
+        <img src="https://zapodaj.net/images/b9789e8352161.jpg", alt=" cos" height="400">
+        {% endif %}
+    </form>
+</body>
+</html>
