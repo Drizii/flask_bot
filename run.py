@@ -2,13 +2,12 @@ from flask import Flask, request, render_template
 import random
 
 
-question = ['ktory jest glupi ', 'ktory jest z policji ', 'ktory pije kawe ', 'ktory je zupe', 'który śpi ', 'którego, gówno to obchodzi']
-answer = ['dupa', 'gówno', 'nie interesuj sie', 'A zasadził ktoś, kiedyś panu kopa w dupę?', 'Jełopie, jeden zasrany', 'W tym kraju nie ma pracy dla ludzi z moim wykształceniem']
+question = ['ktory jest glupi ', 'ktory jest z policji ', 'ktory pije kawe ', 'ktory je zupe', 'który śpi ',
+            'którego, gówno to obchodzi ', 'który ma znajomych ', 'i po co mu te pieniążki ']
+answer = ['nie interesuj sie', 'uśmiechnięty karzeł', 'Jełop, jeden zasrany',
+          'MyszoJeleń', 'Rudy murzyn żyd i chiniol w jednym' ]
 
 app = Flask(__name__)
-
-
-
 
 @app.route('/a', methods=['POST', 'GET'])
 def bot1():

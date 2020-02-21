@@ -5,15 +5,30 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+        }
+        h1, h2, form {
+            top: 50%;
+            text-align: center
+        }
+        body {
+         background-color: #cccccc;
+        }
+
+    </style>
     <title>Malyszobot</title>
-
-
-
 </head>
-
 <body>
-    <h1>Witaj w Małyszobocie! <br />
-    Wpisz imię osoby, o której chcesz usłyszec żart.</h1>
+<div class="container">
+<h1>Witaj w Małyszobocie!</h1> <br />
+
+    <h2>Wpisz imię osoby, o której chcesz usłyszec żart.</h2><br>
     <form action="/a" method="post">
         Imie: <br> <br>
         <input type="text" name="text"> <br> <br>
@@ -30,8 +45,9 @@
         <br>
         <br>
 
-        <img src="https://zapodaj.net/images/b9789e8352161.jpg", alt=" cos" height="400">
+        <img src="https://zapodaj.net/images/b9789e8352161.jpg", alt=" wesole-mordki",  height="400", class="center">
         {% endif %}
     </form>
+</div>
 </body>
 </html>
